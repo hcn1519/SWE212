@@ -14,3 +14,9 @@ pattern = "**/*.swift"
 
 [languages.swift.languageServer]
 start = "sourcekit-lsp"
+
+[languages.cpp]
+pattern = "**/*.{cpp,h}"
+
+[languages.cpp.languageServer]
+start = "ccls"

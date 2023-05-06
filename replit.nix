@@ -1,7 +1,8 @@
 { pkgs }: {
-    deps = [
-        pkgs.sudo
-        pkgs.swift
-        pkgs.clang
-    ];
+	deps = [
+    pkgs.swift
+		pkgs.ccls
+		pkgs.gdb
+		pkgs.gnumake
+	];
 }
