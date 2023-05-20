@@ -76,19 +76,16 @@ std::vector<std::string> stop_words() {
   return stop_words;
 }
 
+// - Column reprsents the column in spreadsheet
 template <typename U, typename T> class Column {
 public:
   U values;
   T function;
-  bool isNull;
 
-  Column() : function(nullptr), isNull(true) {}
+  Column() : function(nullptr) {}
 
   Column(const U &columnValues, const T &columnFunction)
-      : values(columnValues), function(columnFunction), isNull(false) {}
-
-  Column(const U &columnValues, const T &columnFunction, bool isNull)
-      : values(columnValues), function(columnFunction), isNull(isNull) {}
+      : values(columnValues), function(columnFunction) {}
 
   void setValues(U &columnValues) { values = columnValues; }
 };
@@ -152,18 +149,13 @@ int main(int argc, char **argv) {
     return combinedData;
   };
 
-  Column allwords = Column(
-      all_words(argv[1]), []() {}, true);
-  Column stopwords = Column(
-      stop_words(), []() {}, true);
-  Column non_stopwords =
-      Column<std::vector<std::string>, decltype(f1)>({}, f1, false);
-  Column unique_words =
-      Column<std::vector<std::string>, decltype(f2)>({}, f2, false);
-  Column counts = Column<std::vector<int>, decltype(f3)>({}, f3, false);
+  Column allwords = Column(all_words(argv[1]), []() {});
+  Column stopwords = Column(stop_words(), []() {});
+  Column non_stopwords = Column<std::vector<std::string>, decltype(f1)>({}, f1);
+  Column unique_words = Column<std::vector<std::string>, decltype(f2)>({}, f2);
+  Column counts = Column<std::vector<int>, decltype(f3)>({}, f3);
   Column sortedCol =
-      Column<std::vector<std::pair<std::string, int>>, decltype(f4)>({}, f4,
-                                                                     false);
+      Column<std::vector<std::pair<std::string, int>>, decltype(f4)>({}, f4);
 
   auto n = non_stopwords.function(allwords.values, stopwords.values);
   non_stopwords.setValues(n);
