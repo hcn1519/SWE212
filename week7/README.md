@@ -17,7 +17,7 @@ cd week7
 g++ TwentySeven.cpp -o TwentySeven
 ```
 
-2. Run the TwentySeven program and see the result
+2. Run the `TwentySeven` program and see the result
 
 ```shell
 ./TwentySeven ../pride-and-prejudice.txt 
@@ -27,7 +27,7 @@ g++ TwentySeven.cpp -o TwentySeven
 
 1. Complie the `TwentyEight` program
 
-- TwentyEight uses coroutine features of c++ which were adopted in c++20.
+- `TwentyEight` uses coroutine of c++ which was adopted in c++20.
 
 ```shell
 g++ -std=c++20 TwentyEight.cpp -o TwentyEight
@@ -35,7 +35,7 @@ g++ -std=c++20 TwentyEight.cpp -o TwentyEight
 
 2. Run the `TwentyEight` program and see the result
 
-- TwentyEight not only outputs final results, but also intermediate results as implemented in the code in the [repository](https://github.com/crista/exercises-in-programming-style/blob/master/28-lazy-rivers/tf-28.py).
+- TwentyEight not only outputs final results, but also intermediate results as implemented in the [example code](https://github.com/crista/exercises-in-programming-style/blob/master/28-lazy-rivers/tf-28.py).
 
 ```shell
 ./TwentyEight ../pride-and-prejudice.txt
